@@ -1,0 +1,37 @@
+{% extends "cbook/menu.html" %}
+{% block content %}
+<h1>Decrypt: </h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'cbook:decrypt_post' %}" method="post">
+{% csrf_token %}
+    <div class="form-group">
+        <label for="encrypted_message">Encrypted Message</label>
+        <textarea name="encrypted_message" id="encrypted_message" class="form-control col-md-push-2"></textarea>
+    </div>
+
+<!--
+    <div class="form-group">
+          <label for="privatekeyid">Private Key: </label>
+          <select class="form-control" name="privatekeyid" id="privatekeyid">
+              {% for key in key_list %}
+              <option value="{{ key.fingerprint }}">{{ key.uids.0 }} </b> KeyID: <mark>{{ key.keyid }}</mark></option>
+                {% endfor %}
+          </select>
+        </div>
+
+    <div class="form-group">
+        <label for="privatekey">Private Key: THIS IS HERE FOR EXPERIMENTAL PURPOSES. DON'T GO AROUND PASTING YOUR PRIVATE KEYS INTO FORMS.</label>
+        <textarea name="privatekey" id="privatekey" class="form-control col-md-push-2">{{ key }}</textarea>
+    </div>
+-->
+        <div class="form-group">
+        <label for="passphrase">Passphrase for private key:</label>
+        <textarea name="passphrase" id="passphrase" class="form-control col-md-push-2">{{ key }}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" id="submit" name="submit" class="btn btn-primary">Decrypt</button>
+    </div>
+</form>
+{% endblock %}

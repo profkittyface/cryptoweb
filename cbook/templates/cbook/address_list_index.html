@@ -1,0 +1,23 @@
+{% extends "cbook/menu.html" %}
+{% block content %}
+<h1>Address List</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<ul>
+    {% for key in key_list %}
+    <a href="{% url 'cbook:encrypt_index' %}{{ key.fingerprint }}/"><li>UID: <b>{{ key.uids.0 }}</b> KeyID: <mark>{{ key.keyid }}</mark> Fingerprint: {{ key.fingerprint }}</li></a> <a href="{% url 'cbook:address_list_delete' %}{{ key.fingerprint }}/"><i>Delete</i></a>
+    {% endfor %}
+    </ul>
+
+<form action="{% url 'cbook:address_list_add' %}" method="post">
+{% csrf_token %}
+    <div class="form-group">
+        <label for="key">Add key to address list: </label>
+        <textarea name="key" id="key" class="form-control col-md-push-2" style="height:100%"></textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" id="submit" name="submit" class="btn btn-primary">Add key</button>
+    </div>
+</form>
+{% endblock %}
