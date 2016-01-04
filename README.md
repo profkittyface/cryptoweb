@@ -6,7 +6,7 @@ It supports maintaining private keys on your server as well as an address book f
 
 This app is designed to be run locally but can be set up to run on a public network, just please enable SSL as the passphrase is posted in the web request.
 
-![Screenshot](http://s16.postimg.org/nkyr9u3cz/cryptobook.png "Screenshot")
+![Screenshot](https://cloud.githubusercontent.com/assets/3753207/12082615/76a1216a-b263-11e5-9be2-0c5215128600.png "Screenshot")
 
 To run locally, install the following packages:
 
