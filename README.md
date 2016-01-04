@@ -6,6 +6,8 @@ It supports maintaining private keys on your server as well as an address book f
 
 This app is designed to be run locally but can be set up to run on a public network, just please enable SSL as the passphrase is posted in the web request.
 
+![Screenshot](http://s16.postimg.org/nkyr9u3cz/cryptobook.png "Screenshot")
+
 To run locally, install the following packages:
 
 <pre>
@@ -16,6 +18,8 @@ apt-get install gnupg
 
 
 * OSX/Windows users will have to install GPGTools
+<br>
 <a>https://gpgtools.org/</a>
 
- and run ./manage.py runserver
+Set GPGHOME in settings.py and then you're off!
+<pre>./manage.py runserver</pre>
